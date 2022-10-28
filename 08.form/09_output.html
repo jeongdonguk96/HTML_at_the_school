@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output 출력 형식</title>
+</head>
+<body>
+    <h2>Output 태그 예제</h2>
+    <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+        <!-- number타입은 size가 적용이 되지 않아 css의 style로 조정해야 한다 -->
+        <input type="number" name="num1" style="width:50px;" value="0"> +
+        <input type="number" name="num2" value="0"> = 
+        <output name="result"></output>
+    </form>
+</body>
+</html>

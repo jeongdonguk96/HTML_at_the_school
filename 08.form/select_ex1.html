@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select 연습</title>
+</head>
+<body>
+    <h1>여름방학 특강 신청</h1>
+    <form>
+        <fieldset>
+            <legend>수강 신청인</legend><br>
+            <label>
+                학번
+                <input type="text" name="학번"> <br><br>
+                이름
+                <input type="text" name="이름"> <br><br>
+                학과
+                <select name="학과" size="4">
+                    <optgroup label="공과대학">
+                        <option value="1">건축공학과</option>
+                        <option value="2">기계공학과</option>
+                        <option value="3">산업공학과</option>
+                        <option value="4">전기전자공학과</option>
+                        <option value="5">컴퓨터공학과</option>
+                    </optgroup>
+                    <optgroup label="인문대학">
+                        <option value="6">사학과</option>
+                        <option value="7">어문학부</option>
+                        <option value="8">철학과</option>
+                    </optgroup>
+                </select> <br><br>
+            </label>
+        </fieldset><br>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라디오 체크박스 예제</title>
+</head>
+<body>
+    <h2>라디오 체크박스 예제</h2>
+    <form method="get">
+        <h3>성별</h3>
+        <!-- value값은 name을 기준으로 연결(name이 같으면 중복x, 다르면 중복o)-->
+        <!-- radio는 하나의 값만 선택 가능, 같은 name 공유해야 함-->
+        <input type="radio" name="gender_btn" value="1">남자<br>
+        <input type="radio" name="gender_btn" value="2">여자<br><br>
+        <input type="submit" value="전송">
+
+        <h3>취미</h3>
+        <!-- checkbox는 여러 값 선택 가능, 같은 name 공유해야 함-->
+        <input type="checkbox" name="interest_box" value="1">등산<br>
+        <input type="checkbox" name="interest_box" value="2">골프<br>
+        <input type="checkbox" name="interest_box" value="3">수영<br>
+        <input type="checkbox" name="interest_box" value="4">기타<br><br>
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>
