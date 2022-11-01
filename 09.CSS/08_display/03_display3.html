@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display inline 속성</title>
+    <style>
+        div ul li {
+            list-style-type: none;
+            display: inline-block; /* block인 li를 inline-block으로 변환 */
+            padding-right: 10px;
+            width: 150px;
+            margin: 20px;
+            /* inline속성은 사이즈를 줘도 의미가 없지만 
+            inline-block은 inline요소를 가지고 있으면서도 사이즈 조절 가능한 속성*/
+        }
+        div ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="#">애완견의 종류</a></li>
+            <li><a href="#">입양하기</a></li>
+            <li><a href="#">건강돌보기</a></li>
+            <li><a href="#">더불어살기</a></li>
+        </ul>
+    </div>
+</body>
+</html>

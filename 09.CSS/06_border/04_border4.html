@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>둥근 테두리 설정</title>
+    <style>
+        .round {
+            width: 150px;
+            height: 100px;
+            border: 2px solid red;
+            display: inline-block;
+            border-radius: 10px; /* 전체 가장자리 부분을 반지름10px을 가지는 원 형태로 */
+        }
+        #bg {
+            border-radius: 50px;
+            background: url(../images/dolls.jfif) no-repeat;
+            background-size: cover;
+        }
+        .round2 {
+            width: 150px;
+            height: 100px;
+            border: 2px solid red;
+            border-top-left-radius: 30px; /* 왼쪽위 부분만 반지름30px을 가지는 원 형태로 */
+            border-bottom-right-radius: 50px; /* 오른쪽아래 부분만 반지름50px을 가지는 원 형태로 */
+        }
+    </style>
+</head>
+<body>
+    <div class="round"></div>
+    <div class="round" id="bg"></div>
+    <div class="round2"></div>
+</body>
+</html>

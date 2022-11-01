@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!-- 전부 div태그로 영역을 구분한 뒤 
+                            style에서 div마다 설정하는 게 기본적인 방법
+                            크게 header, body, footer로 구성함 + (sidebar) -->
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        div {
+            border: 1px solid #CCC;
+        }
+        #container {
+            width: 960px;
+            padding: 20px;
+            margin: 0 auto; /* 화면 중앙에 배치 */
+        }
+        #header {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: yellow;
+            text-align: center;
+        }
+        #sidebar {
+            width: 25%;
+            float: left;
+            padding: 20px;
+            background: skyblue;
+        }
+        #sidebar ul li {
+            list-style-type: none;
+        }
+        #contents {
+            width: 65%;
+            float: right;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        #footer {
+            clear: both; /* float 설정 해지 */
+            padding: 20px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>사이트 제목</h1>
+        </div>
+        <div id="sidebar">
+            <h2>사이드바 제목</h2>
+            <ul>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+        </div>
+        <div id="contents">
+            <h2>본문 제목</h2>
+            <p>국회는 상호원조 또는 안전보장에 관한 조약, 중요한 국제조직에 관한 조약, 우호통상항해조약, 주권의 제약에 관한 조약, 강화조약, 국가나 국민에게 중대한 재정적 부담을 지우는 조약 또는 입법사항에 관한 조약의 체결·비준에 대한 동의권을 가진다.</p>
+            <p>국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 대통령은 제3항과 제4항의 사유를 지체없이 공포하여야 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다.</p>
+        </div>
+        <div id="footer">
+            <h2>Footer 제목</h2>
+            <p>국회의 정기회는 법률이 정하는 바에 의하여 매년 1회 집회되며, 국회의 임시회는 대통령 또는 국회재적의원 4분의 1 이상의 요구에 의하여 집회된다.</p>
+        </div>
+    </div>
+
+</body>
+</html>

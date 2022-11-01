@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마진이란 무엇인가</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background: #031757;
+        }
+        .box1 {
+            margin: 30px 50px 30px 50px; /* 시계방향 순으로 조정 */
+        }
+        .box2 {
+            margin: 30px 50px; /* 수가 2개일 경우 위아래, 좌우 조정 */
+        }
+        .box3 {
+            margin: 50px; /* 수가 1개인 경우 4면 모두 일괄 조정 */
+        }
+        .box4 {
+            margin: 30px 5px 10px; /* 수가 3개일 경우 위, 좌우, 아래 조정*/
+        }
+        /* 마진끼리 맞닿을 때는 두 마진값의 합이 아니라 둘 중 큰 값으로 적용 */
+    </style>
+</head>
+<body>
+    <!-- 한 태그가 가진 공간과 그 태그를 감싸는 태그 사이의 영역을 margin이라 함 -->
+    <!-- 이 경우 각 1번, 4번 div가 가진 공간과 body와 2, 3번 div 사이의 영역을,
+        2, 3번 div가 가진 공간과 다른 div사이의 영역 -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+</html>
