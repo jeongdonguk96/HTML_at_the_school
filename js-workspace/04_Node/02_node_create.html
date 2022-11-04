@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .menu {
+            list-style: none;
+        }
+        ul.menu li {
+            width: 200px;
+            font-size: 1.5rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+        .select {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnadd">추가</button>&nbsp;&nbsp;
+    <button id="btnremove">모든 메뉴 삭제</button>&nbsp;&nbsp;
+    <button id="btnok">노드내용 읽기</button>
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li class="select">menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+        <li>menu6</li>
+    </ul>
+    <hr>
+    <ul class="new_menu">
+
+    </ul>
+
+    
+    <script>
+        // 1. 노드 추가
+        var count = 0; // 클릭 횟수 세기
+        var $menu = $('ul.menu'); // 부모 노드
+        $('#btnadd').on('click', function(){
+            count++; // 클릭 횟수 증가
+            var $item = $('<li>new menu' + count + '</li>'); // 새 메뉴창을 $item에 담음
+
+            // 부모 노드에 신규 노드를 앞에 추가
+            // $menu.prepend($item); // add 버튼이 클릭되면 $menu에 $item을 앞에 추가
+
+            // 부모 노드에 신규 노드를 뒤에 추가
+            // $menu.append($item); // add 버튼이 클릭되면 $menu에 $item을 뒤에 추가
+
+            // 기준 노드 앞에 신규 노드 추가
+            // var $base = $('li.select'); // li.select를 기준으로 잡음
+            // $base.before($item); // 기준 앞에 $item을 추가
+
+            // 기준 노드 뒤에 신규 노드 추가
+            // $base.after($item); // 기준 뒤에 $item을 추가
+        });
+
+        // 2. 노드 이동
+        var $menuItems = $('ul.menu li'); // 클래스 이름이 menu인 ul에 있는 li를 menuItems에 담음
+        
+        $menuItems.on('click',function(){
+            // 부모 노드 내에서 제일 앞으로 이동
+            $menu.prepend(this);
+            // 부모 노드 내에서 제일 뒤로 이동
+            $menu.append(this);
+            // 클릭한 노드 삭제
+            $(this).remove();
+        });
+
+        // 3. 모든 노드 삭제
+        $('#btnremove').on('click', function(){
+            $menu.children().remove(); // children은 해당 노드의 모든 자식노드를 지정
+        });
+
+        // 4. 노드 읽기
+        var $btnok = $('#btnok');
+        // (1) 텍스트 내용 읽기
+        console.log("'ok'버튼의 텍스트 내용 : " + $btnok.text()); // .text
+        // (2) 태그 내용 읽기
+        console.log("'menu'목록의 HTML 내용 : " + $menu.html()); // .html
+
+        // 5. 노드 내용 수정
+        $('#btnadd').on('click', function(){
+            $('ul.new_menu').html('<li>새로운 메뉴</li>');
+        });
+    </script> 
+</body>
+</html>

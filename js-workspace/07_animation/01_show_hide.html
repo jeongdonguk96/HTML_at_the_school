@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <style>
+        #target {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="show">나타나기</button>
+    <button id="hide">감추기</button><br><br>
+    <div id="target">
+        <img src="images/Simpson.jfif" id="img1" alt="쉼슨">
+    </div>
+    <script>
+        $(document).ready(function(){
+            var $target = $('#target');
+
+            $('#show').click(function(){
+                $target.show(3000, function(){
+                    alert('Show OFF!!');
+                });
+            });
+
+            $('#hide').click(function(){
+                $target.hide(3000, function(){
+                    alert('Wrapped');
+                });
+            });
+        })
+    </script>
+</body>
+</html>

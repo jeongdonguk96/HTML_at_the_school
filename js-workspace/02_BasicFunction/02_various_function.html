@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다양한 함수 선언 방법</title>
+    <script type="text/javascript">
+        // 매개변수를 가진 함수
+        function sum(num1, num2) {
+            document.write("매개변수를 가진 함수 num1 + num2 = " + (num1 + num2) + "<br>");
+        }
+        sum(100, 23);
+
+        // 매개변수와 return 값이 있는 함수
+        function area(width, height) {
+            return width * height;
+        }
+        var area1 = area(4.15, 5.8);
+        document.write("반환값이 있는 함수 area1 = " + area1 + "<br>");
+
+        // 익명 함수 - function을 선언하지 않고 변수에 함수를 담음
+        var area2 = function(width, height) {
+            return width * height;
+        }
+        var size = area2(4, 5); // 변수 size에 또 값을 담아서 출력하는 방식
+        document.write("익명함수 area2 = " + size + "<br>");
+
+        // 익명함수의 즉시 호출
+        var area3 = (function(){
+            var width = 3;
+            var height = 5;
+
+            return width * height;
+        }()); // 중괄호 뒤의 빨간 괄호는 함수호출을 의미 
+        document.write("즉시함수 area3 = " + area3 + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

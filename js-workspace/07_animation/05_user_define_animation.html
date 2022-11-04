@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+</head>
+<body>
+    <button id="show">나타나기</button>
+    <button id="hide">감추기</button><br><br>
+    <div id="target">
+        <img src="images/Simpson.jfif" id="img1" alt="쉼슨">
+    </div>
+    <script>
+        $(document).ready(function(){
+            var $target = $('#target');
+
+            $('#show').click(function(){
+                $target.stop(); // 이전에 동작하던 애니메이션 중지 
+                $target.animate({
+                    opacity : 1 // opacity : 투명도. 0 ~ 1 사이
+                }, 3000, 'easeInBounce');
+            });
+
+            $('#hide').click(function(){
+                $target.stop(); // 이전에 동작하던 애니메이션 중지 
+                $target.animate({
+                    opacity : 0 // opacity : 투명도. 0 ~ 1 사이
+                }, 3000, 'easeOutBounce');
+            });
+        });
+    </script>
+</body>
+</html>

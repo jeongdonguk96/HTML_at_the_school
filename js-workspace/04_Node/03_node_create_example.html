@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+    body {
+        font-size: 9pt;
+        font-family: "굴림";
+    }
+    ul.menu {
+        padding: 10px;
+        list-style: none;
+        border: 1px solid #000;
+    }
+    ul.menu li {
+        border: 1px #079702 solid;
+        margin: 10px;
+        padding: 5px;
+    }
+    li.select {
+        background-color: #ccc;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="menuName"/>
+        <button id="add">추가</button>
+        <button id="update">수정</button>
+        <button id="remove">삭제</button>
+        <button id="up">UP</button>
+        <button id="down">DOWN</button>
+    </div>
+    <ul class="menu">
+        
+    </ul>
+    <script type="text/javascript">
+        var $menu = null;      // 메뉴
+        var $menuName = null;  // 입력 텍스트
+        var $selectItem = null;
+
+        $(document).ready(function(){
+            initialize();
+
+            eventInit();
+        });
+
+        function initialize() {
+            $menu = $("ul.menu");
+            $menuName = $("#menuName");
+        }
+
+        /*
+        ** 버튼 처리 부분을 모아 놓은 함수
+        */
+        function eventInit() {
+            // "추가" 버튼에 대한 처리
+            $("#add").on("click", function(){
+                var menuStr = $menuName.val();
+                var $menuItem = $("<li>" + menuStr + "</li>");
+
+                $menu.append($menuItem);
+            });
+
+            // 메뉴 항목 클릭 시, "select" 클래스 추가
+            // 아래와 같이 하면 동작 안함.
+            // 이유: 클릭 이벤트가 등록될 시점에는 "li"항목이 없었기 때문
+            /*
+            $("ul.menu li").on("click", function() {
+                $(this).addClass("select");
+            });
+            */
+           $("ul.menu").on("click", "li", function(){
+                // 이전에 선택한 항목에서 select 클래스 제거
+                /*
+                if ($selectItem != null) {
+                    $selectItem.removeClass("select");
+                }
+                */
+                $menu.children(".select").removeClass("select");
+                
+                var $item = $(this);
+                $item.addClass("select");
+                $selectItem = $item; // 현재 선택된 항목을 저장해 둠.
+           });
+
+            // 수정버튼 처리
+            $("#update").on("click", function() {
+                if ($selectItem == null) {
+                    alert("선택된 항목이 없습니다.");
+                } else {
+                    var menuName= $menuName.val();
+                    if (menuName == "") {
+                        alert("텍스트를 입력해 주세요.");
+                    } else {
+                        $selectItem.html(menuName);
+                    }
+                }
+            });
+
+            // 삭제 버튼 처리
+            $("#remove").on("click", function() {
+                if ($selectItem == null) {
+                    alert("선택된 항목이 없습니다.");
+                } else {
+                    $selectItem.remove();
+                    $selectItem = null;
+                }
+            });
+
+            // 선택한 항목 위로 이동
+            $("#up").on("click", function() {
+                if ($selectItem == null) {
+                    alert("선택된 항목이 없습니다.");
+                } else {
+                    var $prevItem = $selectItem.prev(); // 선택된 항목의 이전 노드를 prevItem에 담는다
+
+                    if ($prevItem) {
+                        $prevItem.before($selectItem);
+                    }
+                }
+            });
+
+            // 선택한 항목 아래로 이동
+            $("#down").on("click", function() {
+                if ($selectItem == null) {
+                    alert("선택된 항목이 없습니다.");
+                } else {
+                    var $nextItem = $selectItem.next(); // 선택된 항목의 다음 노드를 Item에 담는다
+
+                    if ($nextItem) {
+                        $nextItem.after($selectItem);
+                    }
+                }
+            
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+  	body {
+    	font-size:9pt;
+    	font-family:"굴림";
+  	}
+  	div, p, ul, li {
+    	border:1px #eeeeee solid;
+    	margin:10px;
+  	}
+  	ul {
+    	padding:10px;
+  	}
+   	li.select {
+     	background-color:#ccc;
+   	}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+  <body>
+	<div id="samplePage" class="page">
+  	샘플 페이지(div, id=samplePage, class=page)
+    	<div id="header">
+      	헤더 영역(div, id=header)
+    	</div>
+    	<div id="content" class="sample-content">
+      	노드 찾기(div, id=content, class=sample-content)
+      	<ul class="menu">
+        	일반 노드 찾기(ul, class=menu)
+        	<li>id로 찾기(li)</li>
+        	<li class="select">tag로 찾기(li, class=select)</li>
+        	<li>class로 찾기(li)</li>
+        	<li class="test1">속성으로 찾기(li, class=test1)</li>
+      	</ul>
+      	<div class="content-data">
+        	자식 노드 찾기(div, class=content-data)
+        	<p class="test1">1. 모든 자식 노드 찾기(p, class=test1)</p>
+        	<p>2. 특정 자식 노드만 찾기(p)</p>
+        	<p class="test2">3. 마지막 자식 노드 찾기(p, class=test2)</p>
+      	</div>
+  	</div>
+  	<div id="footer">
+    	푸터 영역(div, id=footer)
+  	</div>
+    <script>
+        // jQuery를 이용
+        // Id 이름으로 노드 찾기
+        // $('#header').css('border', '4px solid #f00');
+
+        // 찾은 노드 객체를 변수에 저장 후 수정
+        // var $header = $('#header');
+        // $header.css("border", "4px solid #f00");
+
+        // Tag 이름으로 노드 찾기
+        // $('p').css('border', '4px solid #f00');
+
+        // Class 이름으로 노드 찾기
+        // $('.test1').css('border', '4px solid #f00');
+
+        // class 속성이 있는 노드 찾기
+        // $('[class]').css('border', '4px solid #f00');
+
+        // id 속성이 있는 노드 찾기
+        // $('[id]').css('border', '4px solid #f00');
+
+        // class 속성이면서 이름이 test로 시작하는 노드 찾기
+        // $('[class^=test]').css('border', '4px solid #f00');
+
+        // class 속성이면서 이름에 content를 포함하는 노드 찾기
+        // $('[class*=content').css('border', '4px solid #f00');
+
+        // 찾은 노드의 갯수 구하기
+        // var $items = $('div'); // div객체를 $items에 담아 .length로 확인
+        // console.log("div노드의 갯수 : " + $items.length) // 웹 콘솔창에서 확인
+
+        // 찾은 노드 중 n번째 요소 접근
+        var $menu = $('ul.menu li'); // 클래스이름이 menu인 ul에서 li를 menu에 담음
+        var $li_1 = $menu.eq(1); // menu의 1번째 인덱스를 li_1에 담음
+        // $li_1.css('border', '4px solid #f00');
+
+        // 찾은 노드 목록의 순차적 접근
+        // $menu.each(function(index){ // menu의 모든 요소를 each로 순차적 접근
+        //     console.log(this); // 위에서 선택된 요소가 this에 들어감
+        // });
+
+        // 찾은 노드 중 특정 자식 노드 찾기
+        var $content = $('#content'); // id가 content인 노드를 담음
+        $content.find('.test1').css('border', '4px solid #f00'); // 노드 content에 속하는 자식 노드 찾기
+
+        
+    </script>
+  </body>
+</html>

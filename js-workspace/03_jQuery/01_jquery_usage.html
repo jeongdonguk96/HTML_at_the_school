@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기본 사용법</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("div").css("border", "1px solid #00f");
+            $("#data2").css("border", "2px solid #f00");
+        });
+    </script>
+</head>
+<body>
+    <div>div-data1</div>
+    <div id="data2">div-data2</div>
+    <div>div-data3</div>
+</body>
+</html>

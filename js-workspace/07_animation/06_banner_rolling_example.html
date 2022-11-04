@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wrap {
+            margin:50px;
+        }    
+        #prev, #next {
+            width:80px;
+            height:40px;
+        }
+        div.banner {
+           margin-top:10px;
+           width:260px;
+           height:166px;
+           border:1px solid #000;
+           position: relative;
+           /* 테스트를 위해 주석 처리 */
+           overflow:hidden;        
+        } 
+        div.banner-container{
+            width:1300px;  /* 260*5 */
+            position:absolute;
+            left:0;
+            top:0;
+        } 
+        div.banner-container img{
+            display: block;
+            float:left;
+            left:0;
+            top:0;
+            width:260px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button id="prev">이전</button>
+        <button id="next">다음</button>
+        <div class="banner">
+            <div class="banner-container">
+                <img src="images/1.png" >
+                <img src="images/2.png" >
+                <img src="images/3.png" >
+                <img src="images/4.png" >
+                <img src="images/5.png" >
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var $banner = $(".banner-container");
+            var currentIndex = 0;
+            var bannerSize = $banner.find("img").length;
+            var bannerWidth = $(".banner").width();
+
+            function showImage(index) {
+                var left = -(index * bannerWidth);
+
+                // $banner.css("left", left); css 문법
+
+                $banner.stop().animate({
+                    left : left
+                }, 1000, 'easeInOutCubic');
+            };
+
+            $("#prev").click(function(){
+                currentIndex--; // 이전 버튼을 누르면 현재 인덱스의 수가 줄어듬
+
+                if(currentIndex<0) { // 제일 첫 인덱스에서도 이전을 누르면 제일 마지막 인덱스로 연결
+                    currentIndex = bannerSize-1;
+                }
+
+                showImage(currentIndex)
+            });
+
+            $("#next").click(function(){
+                currentIndex++;
+
+                if(currentIndex>=bannerSize) {
+                    currentIndex = 0;
+                }
+
+                showImage(currentIndex);
+            });
+        });
+    </script>
+</body>
+</html>
